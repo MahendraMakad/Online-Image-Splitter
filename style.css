@@ -1,0 +1,10 @@
+#tilesContainer {
+  display: grid;
+  gap: 5px;
+  grid-template-columns:1fr 1fr 1fr 1fr;
+}
+
+.tileContainer img {
+  max-width: 200px;
+  height: auto;
+}
