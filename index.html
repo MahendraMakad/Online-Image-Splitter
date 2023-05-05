@@ -1,16 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Split Image into Tiles</title>
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css"
+    integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.5.0/jszip.min.js"></script>
 </head>
+
 <body>
-  <input type="file" id="imageInput">
-  <canvas id="canvas"></canvas>
-  <div id="tilesContainer"></div>
-  <button id="downloadButton" style="display:none;">Download</button>
+  <h1 class="section-heading">Image Splitter - cut image in pieces</h1>
+  <section class="navbar">
+    <div class="image-upload">
+      <label for="file-input" class="upload-icon">
+        <i class="fa-solid fa-upload mx-2"></i>Upload Image
+      </label>
+      <input id="file-input" type="file" style="display: none;">
+    </div>
+    <div class="split-container" style="display: none;">
+      <span id="row-text">Rows</span>
+      <span id="col-text">Columns</span>
+      <input type="text" id="rows" value="1">
+      <input type="text" id="cols" value="2">
+      <button id="split-btn" onclick="splitImage()">SPLIT IMAGE</button>
+      <button id="downloadButton" style="display:none;">DOWNLOAD</button>
+    </div>
+  </section>
+  <section class="image-display">
+    <canvas id="canvas"></canvas>
+    <div id="tilesContainer"></div>
+  </section>
   <script src="script.js"></script>
 </body>
+
 </html>
