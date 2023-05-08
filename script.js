@@ -1,26 +1,24 @@
-const canvas = document.getElementById('canvas');
+const canvas = document.getElementById('image-canvas');
 const ctx = canvas.getContext('2d');
-const imageInput = document.getElementById('file-input');
+const fileInput = document.getElementById('file-input');
 const imageContainer = document.getElementsByClassName('image-upload');
 const tilesContainer = document.getElementById('tilesContainer');
 const downloadButton = document.getElementById('downloadButton');
 const splitContainer = document.getElementsByClassName("split-container");
 const displaySection = document.querySelector('.image-display');
-const maxCanvasWidth = 500; // Maximum canvas width
+const maxCanvasWidth = 400; // Maximum canvas width
 let width, height, image;
 
 // image spliting section
 
 
-imageInput.addEventListener('change', () => {
+fileInput.addEventListener('change', () => {
   image = new Image();
-  const file = imageInput.files[0];
+  const file = fileInput.files[0];
   const reader = new FileReader();
 
   reader.onload = () => {
     image.onload = () => {
-      imageContainer[0].style.display = "none";
-      splitContainer[0].style.display = "block";
       width = image.width;
       height = image.height;
       let canvasWidth = width;
@@ -80,9 +78,6 @@ const splitImage = () => {
     const fileName = `tile_${index}.png`;
     zip.file(fileName, tile.toDataURL('image/png').substr(22), { base64: true });
   });
-
-  // Show the download button
-  downloadButton.style.display = 'block';
 
   // Add event listener to the download button
   downloadButton.addEventListener('click', () => {
